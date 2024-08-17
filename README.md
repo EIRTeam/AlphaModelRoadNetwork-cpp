@@ -1,3 +1,7 @@
+# AlphaModelRoadNetwork-cpp
+
+![](doc/example.png)
+
 An implementation of "A model for the generation of road networks" in C++
 
 AKA the alpha model for procedural road network generation
@@ -42,6 +46,20 @@ Create an `AlphaModelRoadGenerator` object, with your given cities.
 
     // Your roads will be in output.edges, with output.vertices being your vertex positions
 ```
+
+# Settings
+
+## Graph settings
+
+- **bounds_\***: The bounds of the area to generate a road in
+- **dummy_point_count**: How many dummy points to generate to use as discrete points to build roads through
+
+## Generation settings
+
+![](doc/alpha_values.png)
+
+- **alpha** Alpha value, paper recommends 0.7 for human-like generation, the lower the more tree-like it is.
+- **road_straightening_factor**: How much to straighten the roads after generation, gives a much more driveable result.
 
 # Potential improvements
 - The ability to return complete road paths with road weights
