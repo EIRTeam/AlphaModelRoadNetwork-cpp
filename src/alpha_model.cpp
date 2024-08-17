@@ -274,15 +274,15 @@ void AlphaModelRoadGenerator::generate_roads(RoadGenerationSettings p_settings, 
         }
         int new_v1 = vertex_remap[edge.v1];
         int new_v2 = vertex_remap[edge.v2];
-        p_output.road_edges.emplace_back(
+        p_output.edges.emplace_back(
             RoadGraph::Edge {
                 .v1 = new_v1,
                 .v2 = new_v2,
                 .length = edge.length
             }
         );
-        p_output.adjacency_list[new_v1].push_back(p_output.road_edges.size()-1);
-        p_output.adjacency_list[new_v2].push_back(p_output.road_edges.size()-1);
+        p_output.adjacency_list[new_v1].push_back(p_output.edges.size()-1);
+        p_output.adjacency_list[new_v2].push_back(p_output.edges.size()-1);
     }
 
     // relax edges
@@ -297,7 +297,7 @@ void AlphaModelRoadGenerator::generate_roads(RoadGenerationSettings p_settings, 
 
 
         for (int adjacent : p_output.adjacency_list[i]) {
-            int other = p_output.road_edges[adjacent].v1 == i ? p_output.road_edges[adjacent].v2 : p_output.road_edges[adjacent].v1;
+            int other = p_output.edges[adjacent].v1 == i ? p_output.edges[adjacent].v2 : p_output.edges[adjacent].v1;
             average_x += p_output.vertices[other].point.x;
             average_y += p_output.vertices[other].point.y;
         }

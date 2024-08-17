@@ -2,3 +2,4 @@
 *.o
 *.dblite
 example/bin/*
+*compile_commands.json*

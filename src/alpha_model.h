@@ -81,7 +81,7 @@ public:
 
     struct RoadGenerationOutput {
         std::vector<RoadGraph::Vertex> vertices;
-        std::vector<RoadGraph::Edge> road_edges;
+        std::vector<RoadGraph::Edge> edges;
         std::vector<std::vector<int>> adjacency_list;
     };
 
